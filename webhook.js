@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     const challenge = req.query['hub.challenge'];
 
     if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-      console.log('✅ Webhook verified');
+      console.log('✅ Webhook verified!');
       return res.status(200).send(challenge);
     } else {
       return res.sendStatus(403);
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'POST') {
-    console.log('📨 Incoming message:', JSON.stringify(req.body, null, 2));
+    console.log('📩 Incoming message:', JSON.stringify(req.body, null, 2));
     return res.sendStatus(200);
   }
 
